@@ -5,12 +5,11 @@
  
 var bGround = require('fcc-express-bground');
 var myApp = require('./myApp');
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
-const absolutePath  = __dirname + '/views/index.html';
+const absolutePath  = __dirname + "/views/index.html";
 const absolutePath2 = __dirname + "/public";
-
 
 app.use(express.static(absolutePath2));
 
@@ -19,16 +18,20 @@ if (!process.env.DISABLE_XORIGIN) {
     var allowedOrigins = ['https://narrow-plane.gomix.me', 'https://www.freecodecamp.com'];
     var origin = req.headers.origin || '*';
     if(!process.env.XORIG_RESTRICT || allowedOrigins.indexOf(origin) > -1){
-         console.log(origin);
-         res.setHeader('Access-Control-Allow-Origin', origin);
-         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      console.log(origin);
+      res.setHeader('Access-Control-Allow-Origin', origin);
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     }
     next();
   });
-}
+};
 
 app.get('/',(req,res)=>{
   res.sendFile(absolutePath)
+});
+
+app.get('/json',(req,res)=>{
+  res.json({"message" : "Hello json"})
 })
 
 var port = process.env.PORT || 3000;
