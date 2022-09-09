@@ -10,7 +10,7 @@ const app = express();
 const path = require ('path');
 const { time } = require('console');
 const dotenv = require ('dotenv').config();
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
 const absolutePath  = __dirname + "/views/index.html";
 const absolutePath2 = __dirname + "/public";
@@ -23,7 +23,11 @@ app.use((req,res,next)=>{
   next();
 })
 
-app.use(bodyParser.urlencoded({extended : false}));
+app.use(bodyParser.urlencoded({
+  extended : false
+}));
+
+app.use(bodyParser.json());
 
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
