@@ -13,10 +13,8 @@ const dotenv = require ('dotenv').config();
 const bodyParser = require('body-parser');
 
 const absolutePath  = __dirname + "/views/index.html";
-const absolutePath2 = __dirname + "/public";
 
-
-app.use(express.static(absolutePath2));
+app.use('/',express.static(__dirname + '/public'));
 
 app.use((req,res,next)=>{
   console.log(req.method +" "+req.path+" - "+req.ip);
