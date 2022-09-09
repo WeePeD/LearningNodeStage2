@@ -58,6 +58,13 @@ app.get('/:param1/echo',(req,res)=>{
   res.json({"echo" : req.params.param1});
 })
 
+app.get('/name',(req,res)=>{
+  const firstName = req.query.firstName;
+  const lastName  = req.query.lastName;
+  console.log(firstName + " " + lastName);
+  res.json({"name": `${firstName} ${lastName}`})
+})
+
 var port = process.env.PORT || 3000;
 bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
   bGround.log('Node is listening on port '+ port + '...')
