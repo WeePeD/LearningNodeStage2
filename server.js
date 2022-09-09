@@ -62,7 +62,7 @@ app.get('/name',(req,res)=>{
   const firstName = req.query.firstName;
   const lastName  = req.query.lastName;
   console.log(firstName + " " + lastName);
-  res.json({"name": `${firstName} ${lastName}`})
+  res.json({"name": ` ${firstName} ${lastName}`})
 })
 
 var port = process.env.PORT || 3000;
