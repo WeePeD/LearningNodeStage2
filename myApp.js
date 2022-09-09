@@ -1,8 +1,8 @@
 const express = require ("express");
 app = express();
-var testPath = __dirname + '/views/index.html';
+const testPath = __dirname + "/public";
 
-console.log(testPath);
+console.log("TestPath: "+ testPath);
 
 
 

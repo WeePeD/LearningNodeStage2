@@ -8,7 +8,11 @@ var myApp = require('./myApp');
 var express = require('express');
 var app = express();
 
-var absolutePath = __dirname + '/views/index.html';
+const absolutePath  = __dirname + '/views/index.html';
+const absolutePath2 = __dirname + "/public";
+
+
+app.use(express.static(absolutePath2));
 
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
