@@ -12,7 +12,6 @@ const { time } = require('console');
 const dotenv = require ('dotenv').config();
 const bodyParser = require('body-parser');
 
-const absolutePath  = __dirname + "/views/index.html";
 
 app.use('/public',express.static(__dirname + '/public'));
 
@@ -37,7 +36,7 @@ if (!process.env.DISABLE_XORIGIN) {
 };
 
 app.get('/',(req,res)=>{
-  res.sendFile(absolutePath)
+  res.sendFile(__dirname + "/views/index.html")
 });
 
 app.get('/json',(req,res)=>{
