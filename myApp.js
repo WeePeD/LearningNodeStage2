@@ -1,7 +1,8 @@
 const express = require ("express");
 app = express();
+var testPath = __dirname + '/views/index.html';
 
-console.log("Hello world");
+console.log(testPath);
 
 
 
