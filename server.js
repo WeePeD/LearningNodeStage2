@@ -51,7 +51,11 @@ app.get('/now',(req,res,next)=>
   req.time = new Date().toString();
   next();
 },(req,res)=>{
+<<<<<<< HEAD
   res.json({"time": req.time});
+=======
+    res.json({"time": req.time});
+>>>>>>> b02d697b4d51b0dc28faa38f397c825be916bd05
 })
 
 var port = process.env.PORT || 3000;
