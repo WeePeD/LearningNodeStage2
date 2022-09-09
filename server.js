@@ -8,6 +8,7 @@ var myApp = require('./myApp');
 const express = require('express');
 const app = express();
 const path = require ('path');
+const { time } = require('console');
 const dotenv = require ('dotenv').config();
 
 const absolutePath  = __dirname + "/views/index.html";
@@ -44,6 +45,14 @@ app.get('/json',(req,res)=>{
   };
   res.json({"message" : "Hello json"}) 
 });
+
+app.get('/now',(req,res,next)=>
+{
+  req.time = new Date().toString();
+  next();
+},(req,res)=>{
+  res.json(req.time);
+})
 
 var port = process.env.PORT || 3000;
 bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
