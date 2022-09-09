@@ -16,6 +16,7 @@ const absolutePath2 = __dirname + "/public";
 
 
 app.use(express.static(absolutePath2));
+
 app.use((req,res,next)=>{
   console.log(req.method +" "+req.path+" - "+req.ip);
   next();
@@ -52,6 +53,10 @@ app.get('/now', (req,res,next) => {
 },(req,res,next) => {
     res.json({"time": req.time});
 });
+
+app.get('/:param1/echo',(req,res)=>{
+  res.json({"echo" : req.params.param1});
+})
 
 var port = process.env.PORT || 3000;
 bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
