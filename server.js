@@ -46,10 +46,10 @@ app.get('/json',(req,res)=>{
   res.json({"message" : "Hello json"}) 
 });
 
-app.get('/now',(req,res,next)=>{
+app.get('/now', (req,res,next)=>{
   req.time = new Date().toString();
   next();
-},(req,res,next)=>{
+},(req,res)=>{
     res.json({"time": req.time});
 })
 
