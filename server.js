@@ -61,8 +61,7 @@ app.get('/:param1/echo',(req,res)=>{
 app.get('/name',(req,res)=>{
   const firstName = req.query.first;
   const lastName  = req.query.last;
-  console.log(firstName + " " + lastName);
-  res.json({"name": ` ${firstName} ${lastName}`})
+  res.json({name : `${firstName} ${lastName}`})
 })
 
 var port = process.env.PORT || 3000;
