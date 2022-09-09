@@ -13,7 +13,12 @@ const dotenv = require ('dotenv').config();
 const absolutePath  = __dirname + "/views/index.html";
 const absolutePath2 = __dirname + "/public";
 
+
 app.use(express.static(absolutePath2));
+app.use((req,res,next)=>{
+  console.log(req.method +" "+req.path+" - "+req.ip);
+  next();
+})
 
 if (!process.env.DISABLE_XORIGIN) {
   app.use(function(req, res, next) {
