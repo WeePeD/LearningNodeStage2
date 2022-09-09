@@ -65,6 +65,11 @@ app.get('/name',(req,res)=>{
   res.json({name : `${firstName} ${lastName}`})
 })
 
+app.post('/name',(req,res)=>{
+  const firstName = req.query.first;
+  const lastName  = req.query.last;
+  res.json({name : `${firstName} ${lastName}`})
+})
 var port = process.env.PORT || 3000;
 bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
   bGround.log('Node is listening on port '+ port + '...')
