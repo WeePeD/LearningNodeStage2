@@ -20,7 +20,7 @@ app.use((req,res,next)=>{
   console.log(req.method +" "+req.path+" - "+req.ip);
   next();
 })
-
+app.use(bodyParser.urlencoded({extended :false}));
 
 
 if (!process.env.DISABLE_XORIGIN) {
@@ -66,8 +66,8 @@ app.get('/name',(req,res)=>{
 })
 
 app.post('/name',(req,res)=>{
-  const firstName = req.query.first;
-  const lastName  = req.query.last;
+  const firstName = req.body.first;
+  const lastName  = req.body.last;
   res.json({name : `${firstName} ${lastName}`})
 })
 var port = process.env.PORT || 3000;
